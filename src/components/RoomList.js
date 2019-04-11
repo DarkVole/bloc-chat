@@ -14,12 +14,11 @@ const RoomList = () => (
 
  componentDidMount() {
      this.roomsRef.on('child_added', snapshot => {
-         const room = snapshot.val();
+     const room = snapshot.val();
      room.key = snapshot.key;
      const room = snapshot.val();
      room.key = snapshot.key;
-     this.setState({ rooms: this.state.rooms.concat( room ) })
-     });
+     this.setState({ rooms: this.state.rooms.concat( room ) });
    }
 
 
@@ -36,10 +35,17 @@ const RoomList = () => (
 
 
             )
-              }
-              </tbody
+              
+
 
   </section>
 );
+
+
+           <span>
+             { this.state.rooms.map( (room, index) =>
+               <room key={index} index />
+             )}
+           </span>
 
 export default RoomList;
